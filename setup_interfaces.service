@@ -1,0 +1,16 @@
+[Unit]
+Description=Setup interfaces to use maximum ring buffers and mtu
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/setup_interfaces.sh
+KillMode=process
+Restart=always
+PIDFile=/run/setup_interfaces.pid
+RestartSec=600
+TimeoutStartSec=5
+TimeoutStopSec=5
+
+[Install]
+WantedBy=multi-user.target
